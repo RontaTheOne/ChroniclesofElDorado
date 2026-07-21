@@ -1,0 +1,30 @@
+{
+  "name": "chroniclesofeldorado",
+  "version": "1.0.0",
+  "main": "src/server/app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"node src/server/server.js\"",
+    "build": "vite build",
+    "start": "node --watch src/server/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "googleapis": "^173.0.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.3",
+    "concurrently": "^9.2.4",
+    "nodemon": "^3.1.14",
+    "vite": "^8.1.5"
+  }
+}
