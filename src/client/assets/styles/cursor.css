@@ -1,0 +1,25 @@
+.cursor{
+  width:24px;
+  height:24px;
+  position:fixed;
+  top:0;
+  left:0;
+  border:2px solid var(--amber);
+  border-radius:50%;
+  pointer-events:none;
+  z-index:999999;
+  transform:translate(-50%,-50%);
+  box-shadow:0 0 10px rgba(232,160,32,.8), 0 0 30px rgba(232,160,32,.3);
+  transition:transform .08s linear;
+}
+
+.cursor::before{
+  content:"✦";
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:.7rem;
+  color:var(--amber);
+}

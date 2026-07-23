@@ -1,19 +1,24 @@
 import React from "react";
+import { useHeaderScroll } from '../hooks/useHeaderScroll.js'
+import '../assets/styles/header.css'
 
-function Navbar() {
+function Header() {
+  const scrolled = useHeaderScroll(50)
+
   return (
-    <div  className="navbar">
-      <nav>
-        <ul>
-          <li><a href="#Hero">Inicio</a></li>
-          <li><a href="#History">Historia</a></li>
-          <li><a href="#Characters">Personajes</a></li>
-          <li><a href="#News">Noticias</a></li>
-          <li><a href="#Reserve">Reservar</a></li>
-        </ul>
-      </nav>  
-    </div>
-  );
+    <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+      <nav className="navbar">
+        <div className="logo">Chronicle of El Dorado</div>
+        <div className="nav-links">
+          <a href="#Hero">Inicio</a>
+          <a href="#History">Historia</a>
+          <a href="#Characters">Personajes</a>
+          <a href="#News">Noticias</a>
+          <a href="#Reserve">Reservar</a>
+        </div>
+      </nav>
+    </header>
+  )
 }
 
-export default Navbar;
+export default Header;
