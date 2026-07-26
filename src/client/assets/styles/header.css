@@ -25,9 +25,8 @@
   font-family:var(--title-font);
   font-size:1.8rem;
   font-weight:800;
-  color:var(--amber);
+  color:var(--cream);
   letter-spacing: 2.5px;
-  text-shadow:0 0 15px rgba(201,146,10,.4);
 }
 
 .nav-links{ display:flex; gap:30px; }

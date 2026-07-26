@@ -85,11 +85,6 @@
     transition:.3s;
 }
 
-.platform-list i:hover{
-    color:var(--gold);
-    transform:translateY(-3px);
-}
-
 .hero-cta{
   margin-top:36px;
   display:flex;
@@ -108,12 +103,10 @@
   font-size:.9rem;
   letter-spacing:1px;
   text-transform:uppercase;
-  border-radius:999px;
   cursor:pointer;
   overflow:hidden;
   transition:.35s;
   box-shadow:0 0 20px rgba(232,160,32,.25), 0 6px 20px rgba(0,0,0,.4);
-  animation:pulseGlow 3s infinite;
 }
 
 /* Botón secundario (Ver Trailer) con estilo outline */

@@ -28,8 +28,8 @@ function Hero() {
           </div>
       </div>
       <div className="hero-cta">
-        <button className="cta-btn">Ver Trailer</button>
-         <button className="cta-btn">Reservarlo ahora</button>
+        <button className="cta-btn btn">Ver Trailer</button>
+        <button className="cta-btn btn">Reservarlo ahora</button>
       </div>
       <div className="scroll-indicator">
         <span>Desliza para descubrir más</span>
