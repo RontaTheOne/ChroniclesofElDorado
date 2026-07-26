@@ -1,0 +1,22 @@
+:root{
+  --black:#0A0804;
+  --gold:#C9920A;
+  --amber:#E8A020;
+  --jade:#1A4A3A;
+  --blood:#8B1A1A;
+  --cream:#D4C5A0;
+
+  --title-font:'Cinzel', serif;
+  --body-font:'Crimson Pro', serif;
+  --ui-font:'Oswald', sans-serif;
+
+  --shadow-gold:0 0 15px rgba(201,146,10,.45);
+  --shadow-strong:0 10px 40px rgba(0,0,0,.5);
+
+  --border-pattern:linear-gradient(
+    90deg,
+    transparent,
+    rgba(201,146,10,.8),
+    transparent
+  );
+}
