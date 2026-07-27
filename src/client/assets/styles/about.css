@@ -1,0 +1,180 @@
+/* TerritorySection.css */
+
+.territory-section {
+  position: relative;
+  min-height: 100vh;
+  background-color: #14150f;
+  background-image:
+    radial-gradient(ellipse at 30% 30%, rgba(40, 46, 34, 0.55), transparent 60%),
+    radial-gradient(ellipse at 75% 70%, rgba(30, 34, 26, 0.5), transparent 55%);
+  overflow: hidden;
+  padding: 5.5rem 4.5rem 4.5rem;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.territory-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Vignette: funde a negro arriba y abajo */
+.territory-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    #0c0d09 0%,
+    transparent 12%,
+    transparent 88%,
+    #0c0d09 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Nombres de lugares desvanecidos de fondo, como un mapa antiguo */
+.territory-map-labels {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(232, 225, 208, 0.06);
+}
+.territory-map-labels span { position: absolute; white-space: nowrap; }
+.territory-map-labels .label-1 { top: 8%; left: 38%; font-size: 1.4rem; }
+.territory-map-labels .label-2 { top: 42%; right: 6%; font-size: 1.1rem; }
+.territory-map-labels .label-3 { bottom: 14%; left: 4%; font-size: 1.6rem; }
+
+.territory-grid {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Columna de texto --- */
+
+.territory-content {
+  padding-top: 2rem;
+}
+
+.territory-eyebrow {
+  font-family: var(--title-font);
+  font-weight: 400;
+  font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #e8e1d0;
+  margin: 0 0 1.75rem;
+}
+
+.territory-name {
+  font-family: var(--title-font);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 3.4vw, 2.75rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #e8e1d0;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Divisor: atraviesa todo el ancho de la sección */
+.territory-divider {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 1.1rem 0 1.75rem;
+}
+
+.territory-divider-marks {
+  font-size: 0.8rem;
+  letter-spacing: 0.5em;
+  color: rgba(232, 225, 208, 0.7);
+  white-space: nowrap;
+}
+
+.territory-divider-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(232, 225, 208, 0.35);
+}
+
+.territory-description {
+  font-family: "Cinzel", serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.95rem;
+  line-height: 1.85;
+  text-align: justify;
+  color: rgba(232, 225, 208, 0.75);
+  margin: 0 0 2.25rem;
+}
+
+.territory-environment-title {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(232, 225, 208, 0.9);
+  margin: 0 0 0.6rem;
+}
+
+.territory-environment-text {
+  font-family: "Cinzel", serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 1.85;
+  text-align: justify;
+  color: rgba(232, 225, 208, 0.65);
+  margin: 0;
+}
+
+/* --- Galería --- */
+
+.territory-arrow {
+  background: transparent;
+  border: none;
+  color: rgba(232, 225, 208, 0.55);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0.2rem;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+.territory-arrow:hover:not(:disabled) { color: #e8e1d0; }
+.territory-arrow:disabled { opacity: 0.25; cursor: default; }
+
+.territory-gallery-main {
+  overflow: hidden;
+  background: linear-gradient(160deg, #3b4a30 0%, #1c2016 55%, #0c0d09 100%);
+}
+
+.territory-gallery-thumb {
+  overflow: hidden;
+  filter: grayscale(0.55) contrast(1.05);
+  background: linear-gradient(160deg, #2b2b22 0%, #14150f 100%);
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 991px) {
+  .territory-section { padding: 4rem 1.5rem; }
+  .territory-content { padding-top: 0; }
+}
+
+/* Respeta preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .territory-section {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}

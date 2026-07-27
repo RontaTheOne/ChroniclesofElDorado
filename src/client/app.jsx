@@ -2,7 +2,7 @@ import React from "react";
 import Cursor from "./layout/cursor.jsx";
 import Header from "./layout/header.jsx";
 import Hero from "./sections/hero/hero.jsx";
-import About from "./sections/about.jsx";
+import About from "./sections/about/about.jsx";
 import Character from "./sections/character.jsx";
 import News from "./sections/news.jsx";
 import Reserve from "./sections/reserve.jsx";
