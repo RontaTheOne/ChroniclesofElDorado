@@ -1,11 +1,7 @@
 import React from "react";
-import "swiper/css";
-import "swiper/css/thumbs";
-import "swiper/css/effect-fade";
 import "../../assets/styles/about.css";
 import { useEffect, useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Thumbs, Autoplay, EffectFade } from "swiper/modules";
+import Carrousel from "./carrousel.jsx";
 
 const TERRITORIES = [
   {
@@ -31,7 +27,7 @@ const TERRITORIES = [
   },
 ];
 
-const MAP_LABELS = ["GUATAVITA", "BACATÁ", "IGUAQUE", "HUNZA", "SOGAMOSO"];
+const MAP_LABELS = ["GUATAVITA", "MUYQUITA", "IGUAQUE", "HUNZA", "SUAMOX","CHÍA","SIECHA","TEUSACÁ","UBAQUE","SUACHA"];
 
 function About({ territories = TERRITORIES, mapLabels = MAP_LABELS }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -64,11 +60,16 @@ function About({ territories = TERRITORIES, mapLabels = MAP_LABELS }) {
       id="About"
     >
       <div className="territory-map-labels" aria-hidden="true">
-        <span className="label-1">{mapLabels[0]}</span>
-        <span className="label-2">{mapLabels[1]}</span>
-        <span className="label-3">{mapLabels[2]}</span>
-        <span className="label-4">{mapLabels[3]}</span>
-        <span className="label-5">{mapLabels[4]}</span>
+        <span className="label-1" data-text="GUATAVITA">{mapLabels[0]}</span>
+        <span className="label-2" data-text="MUYQUITA">{mapLabels[1]}</span>
+        <span className="label-3" data-text="IGUAQUE">{mapLabels[2]}</span>
+        <span className="label-4" data-text="HUNZA">{mapLabels[3]}</span>
+        <span className="label-5" data-text="SUAMOX">{mapLabels[4]}</span>
+        <span className="label-6" data-text="CHÍA">{mapLabels[5]}</span>
+        <span className="label-7" data-text="SIECHA">{mapLabels[6]}</span>
+        <span className="label-8" data-text="TEUSACÁ">{mapLabels[7]}</span>
+        <span className="label-9" data-text="UBAQUE">{mapLabels[8]}</span>
+        <span className="label-10" data-text="SUACHA">{mapLabels[9]}</span>
       </div>
 
       <div className="territory-grid">
@@ -97,42 +98,7 @@ function About({ territories = TERRITORIES, mapLabels = MAP_LABELS }) {
           {/* Columna de galería */}
           <div className="col-lg-5 order-2 order-lg-2 territory-gallery-column">
             <div className="territory-gallery">
-              <Swiper
-                modules={[Thumbs, EffectFade, Autoplay]}
-                effect="fade"
-                autoplay={{
-                  delay: 3500,
-                  disableOnInteraction: false,
-                }}
-                thumbs={{
-                  swiper:
-                    thumbsSwiper && !thumbsSwiper.destroyed
-                      ? thumbsSwiper
-                      : null,
-                }}
-                className="gallery-main"
-              >
-                {territory.images.map((img, index) => (
-                  <SwiperSlide key={index}>
-                    <img src={img.src} alt={img.alt} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-
-              <Swiper
-                direction="vertical"
-                slidesPerView={3}
-                spaceBetween={16}
-                watchSlidesProgress
-                onSwiper={setThumbsSwiper}
-                className="gallery-thumbs"
-              >
-                {territory.images.map((img, index) => (
-                  <SwiperSlide key={index}>
-                    <img src={img.src} alt={img.alt} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+              <Carrousel territory={territory} />
             </div>
           </div>
         </div>
