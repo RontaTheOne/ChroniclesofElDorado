@@ -8,7 +8,7 @@ function Hero() {
   const [revealRef, active] = useReveal(0.2)
 
   return (
-    <section className="hero">
+    <section className="hero" id="Hero">
       <div ref={parallaxRef} className="parallax-layer" />
       <Particles amount={45} />
 
