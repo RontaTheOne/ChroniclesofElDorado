@@ -81,7 +81,6 @@
   font-family: var(--title-font);
   font-weight: 600;
   font-size: 3.5rem;
-  letter-spacing: 0.22em;
   text-indent: 0.22em;
   margin: 0 22px;
   background: linear-gradient(180deg, var(--cream) 0%, var(--gold) 100%);

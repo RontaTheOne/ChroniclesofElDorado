@@ -1,0 +1,10 @@
+.news-modal-dialog {
+  max-width: 500px;
+  width: 90%;
+}
+
+.news-modal-img {
+  width: 100%;
+  height: 225px;
+  object-fit: cover;
+}

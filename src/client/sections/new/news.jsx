@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import NewsModal from "./newsModal";
 import "../../assets/styles/news.css";
 
 const NEWS = [
@@ -10,16 +11,21 @@ const NEWS = [
     title: "Bochica desciende: primer teaser cinemático",
     description:
       "Se revela el primer adelanto de Chronicles of El Dorado, mostrando la llegada del legislador a las tierras Muiscas.",
-    image: "/assets/img/news/bochica-teaser.jpg",
+    image: "https://images.unsplash.com/photo-1568489711036-9c94a7d5aea6?auto=format&fit=crop&w=1600&q=80",
   },
 ];
 
-export default function News({
+function News({
   backgroundImage = "https://images.unsplash.com/photo-1568489711036-9c94a7d5aea6?auto=format&fit=crop&w=1600&q=80",
 }) {
+  const [selectedNews, setSelectedNews] = useState(null);
+
   const wrapStyle = backgroundImage
     ? { "--news-bg-image": `url(${backgroundImage})` }
     : undefined;
+
+  const openModal = (item) => setSelectedNews(item);
+  const closeModal = () => setSelectedNews(null);
 
   return (
     <section className="news-wrap" style={wrapStyle}>
@@ -56,9 +62,7 @@ export default function News({
                   <button
                     type="button"
                     className="news-read-more"
-                    onClick={() => {
-                      /* abrir tu modal existente aquí */
-                    }}
+                    onClick={() => openModal(item)}
                   >
                     Descubrir
                     <i className="fa-solid fa-circle-arrow-right arrow-circle"></i>
@@ -69,6 +73,10 @@ export default function News({
           ))}
         </div>
       </div>
+
+      <NewsModal news={selectedNews} onClose={() => setSelectedNews(null)} />
     </section>
   );
 }
+
+export default News;
