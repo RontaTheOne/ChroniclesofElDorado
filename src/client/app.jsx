@@ -4,7 +4,7 @@ import Header from "./layout/header.jsx";
 import Hero from "./sections/hero/hero.jsx";
 import About from "./sections/about/about.jsx";
 import Character from "./sections/character.jsx";
-import News from "./sections/news.jsx";
+import News from "./sections/new/news.jsx";
 import Reserve from "./sections/reserve.jsx";
 import Requeriments from "./sections/requeriments.jsx";
 import Footer from "./layout/footer.jsx";
