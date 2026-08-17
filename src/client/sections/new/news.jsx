@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import NewsModal from "./newsModal";
 import "../../assets/styles/news.css";
 
@@ -19,16 +19,57 @@ function News({
   backgroundImage = "https://images.unsplash.com/photo-1568489711036-9c94a7d5aea6?auto=format&fit=crop&w=1600&q=80",
 }) {
   const [selectedNews, setSelectedNews] = useState(null);
-
-  const wrapStyle = backgroundImage
-    ? { "--news-bg-image": `url(${backgroundImage})` }
-    : undefined;
+  const sectionRef = useRef(null);
+  const bgRef = useRef(null);
 
   const openModal = (item) => setSelectedNews(item);
   const closeModal = () => setSelectedNews(null);
 
+  useEffect(() => {
+    const section = sectionRef.current;
+    const bg = bgRef.current;
+    if (!section || !bg) return;
+
+    const SPEED = 0.35; // 0 = fijo, 1 = se mueve igual que el scroll
+    let ticking = false;
+
+    const update = () => {
+      const rect = section.getBoundingClientRect();
+      const viewportH = window.innerHeight;
+
+      // Progreso de -1 (sección debajo del viewport) a 1 (sección arriba del viewport)
+      const progress = (rect.top - viewportH) / (viewportH + rect.height);
+      const offset = progress * rect.height * SPEED;
+
+      bg.style.transform = `translate3d(0, ${offset}px, 0)`;
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
   return (
-    <section className="news-wrap" style={wrapStyle}>
+    <section className="news-wrap" ref={sectionRef}>
+      <div
+        className="news-bg"
+        ref={bgRef}
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+      ></div>
+
       <div className="news-header">
         <span className="rule"></span>
         <h2>Noticias</h2>

@@ -1,29 +1,24 @@
 .news-wrap {
   position: relative;
   background-color: var(--black);
-  background-image: var(--news-bg-image, none);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   padding: 100px 0 130px;
   overflow: hidden;
 }
 
-/* Degradado a negro arriba y abajo */
-.news-wrap::before {
-  content: "";
+/* Capa de fondo independiente para el efecto parallax.
+   Se dimensiona más alta que la sección (top/bottom negativos) para
+   que el translateY del scroll no deje huecos visibles. */
+.news-bg {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-
-  background: linear-gradient(
-    to bottom,
-    var(--black) 0%,
-    transparent 12%,
-    transparent 88%,
-    var(--black) 100%
-  );
+  top: -20%;
+  left: 0;
+  right: 0;
+  height: 140%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: transform;
+  z-index: 0;
 }
 
 /* Degradado a negro arriba y abajo */
@@ -33,7 +28,7 @@
   inset: 0;
   pointer-events: none;
   z-index: 1;
- 
+
   background: linear-gradient(
     to bottom,
     var(--black) 0%,
