@@ -30,7 +30,7 @@ function News({
     const bg = bgRef.current;
     if (!section || !bg) return;
 
-    const SPEED = 0.35; // 0 = fijo, 1 = se mueve igual que el scroll
+    const SPEED = 0.35; 
     let ticking = false;
 
     const update = () => {

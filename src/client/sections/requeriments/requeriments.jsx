@@ -1,56 +1,45 @@
 import React from "react";
-import "../../assets/styles/requeriments.css"; 
-const TEMPLE_IMAGE_URL =
-  "https://www.worldhistory.org/img/c/p/1200x627/2507.jpg"; 
-  
-const Specifications = [
-  {
-    label: "SO:",
-    value: (
-      <>
-        Windows 10/11 de 64 bits
-      </>
-    ),
-  },
-  {
-    label: "Procesador:",
-    value: (
-      <>
-        Intel Core i5-8400 /
-        AMD Ryzen 5 2600
-      </>
-    ),
-  },
-  {
-    label: "memoria RAM:",
-    value: "16 GB ",
-  },
-  {
-    label: "Almacenamiento:",
-    value: "45 GB DISPONIBLES",
-  },
-  {
-    label: "Gráficos:",
-    value: (
-      <>
-       NVIDIA GTX 1060 6 GB / AMD RX 580 8 GB
-      </>
-    ),
-  },
-  {
-    label: "DirectX:",
-    value: "DirectX 12",
-  },
-];
- 
+import "../../assets/styles/requeriments.css";
+
 function Requeriments() {
-   return (
-   <section className="sysreq-stage">
+  const Image =  "https://www.worldhistory.org/img/c/p/1200x627/2507.jpg";
+
+  const Specifications = [
+    {
+      label: "SO:",
+      value: <>Windows 10/11 de 64 bits</>,
+    },
+    {
+      label: "Procesador:",
+      value: <>Intel Core i5-8400 / AMD Ryzen 5 2600</>,
+    },
+    {
+      label: "memoria RAM:",
+      value: "16 GB ",
+    },
+    {
+      label: "Almacenamiento:",
+      value: "45 GB DISPONIBLES",
+    },
+    {
+      label: "Gráficos:",
+      value: <>NVIDIA GTX 1060 6 GB / AMD RX 580 8 GB</>,
+    },
+    {
+      label: "DirectX:",
+      value: "DirectX 12",
+    },
+  ];
+
+  return (
+    <section className="sysreq-stage">
       <div className="sysreq-content">
         <div className="sysreq-wrap">
-          <p className="sysreq-eyebrow">¿TU COMPUTADOR ESTÁ LISTO PARA LA AVENTURA?</p>
-          <h1 className="sysreq-title">REQUERIMIENTOS MÍNIMOS</h1>
- 
+          <p className="sysreq-eyebrow text-center">
+            ¿TU COMPUTADOR ESTÁ LISTO PARA LA AVENTURA?
+          </p>
+          <h1 className="sysreq-title text-center">REQUERIMIENTOS MÍNIMOS</h1>
+
           <div className="sysreq-grid">
             {Specifications.map((spec) => (
               <div className="sysreq-cell" key={spec.label}>
@@ -61,10 +50,10 @@ function Requeriments() {
           </div>
         </div>
       </div>
-       <div className="sysreq-side-image">
+      <div className="sysreq-side-image">
         <img
-          src={TEMPLE_IMAGE_URL}
-          alt="Temple ruins"
+          src={Image}
+          alt="Requerimientos del sistema"
           className="w-100 h-100"
         />
       </div>
