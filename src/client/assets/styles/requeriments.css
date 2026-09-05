@@ -1,0 +1,196 @@
+.sysreq-stage,
+.sysreq-stage *{
+  box-sizing:border-box;
+}
+
+.sysreq-stage{
+  position:relative;
+  background:#000000;
+  font-family:'Oswald', sans-serif;
+  --sysreq-cream:#e9e0c9;
+  --sysreq-gold:#c9a24b;
+  overflow:hidden;
+}
+
+/* ============================
+   MOBILE / TABLET (< 992px)
+   Los dos bloques se apilan solos (son "block" por defecto):
+   imagen arriba a todo el ancho, specs debajo.
+   ============================ */
+.sysreq-side-image{
+  position:relative;
+  width:100%;
+  height:45vh;
+  min-height:260px;
+  overflow:hidden;
+}
+
+.sysreq-side-image img{
+  display:block;
+  object-fit:cover;
+}
+
+.sysreq-side-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,
+    rgba(11,10,8,0.15) 0%,
+    rgba(11,10,8,0.55) 60%,
+    rgba(11,10,8,0.97) 100%);
+}
+
+.sysreq-content{
+  position:relative;
+  z-index:1;
+  display:flex;
+  justify-content:center;
+  padding:40px 6% 60px;
+}
+
+.sysreq-wrap{
+  max-width:560px;
+  width:100%;
+  text-align:center;
+}
+
+.sysreq-eyebrow{
+  color:var(--sysreq-cream);
+  letter-spacing:4px;
+  font-size:12px;
+  font-weight:500;
+  margin:0 0 10px 0;
+  opacity:.85;
+}
+
+.sysreq-title{
+  font-family:'Bebas Neue', 'Oswald', sans-serif;
+  color:#fff;
+  font-size:20px;
+  letter-spacing:2px;
+  margin:0 0 30px 0;
+  font-weight:700;
+}
+
+.sysreq-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  max-width:560px;
+  margin:0 auto;
+  border-top:1px solid rgba(201,162,75,0.3);
+  border-left:1px solid rgba(201,162,75,0.3);
+}
+
+.sysreq-cell{
+  border-right:1px solid rgba(201,162,75,0.3);
+  border-bottom:1px solid rgba(201,162,75,0.3);
+  padding:20px 24px;
+  position:relative;
+  overflow:hidden;
+  animation:sysreqCellGlow 4s ease-in-out infinite;
+}
+
+.sysreq-cell:nth-child(2){ animation-delay:0.5s; }
+.sysreq-cell:nth-child(3){ animation-delay:1s; }
+.sysreq-cell:nth-child(4){ animation-delay:1.5s; }
+.sysreq-cell:nth-child(5){ animation-delay:2s; }
+.sysreq-cell:nth-child(6){ animation-delay:2.5s; }
+
+@keyframes sysreqCellGlow{
+  0%, 100%{
+    box-shadow: inset 0 0 0 rgba(201,162,75,0);
+    border-color: rgba(201,162,75,0.3);
+  }
+  50%{
+    box-shadow: inset 0 0 18px rgba(201,162,75,0.18);
+    border-color: rgba(201,162,75,0.6);
+  }
+}
+
+.sysreq-label{
+  color:var(--sysreq-gold);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  margin-bottom:8px;
+  display:inline-block;
+}
+
+.sysreq-value{
+  color:var(--sysreq-cream);
+  font-size:14px;
+  line-height:1.5;
+  font-weight:400;
+}
+
+/* Pantallas muy chicas: specs en 1 sola columna */
+@media (max-width:575.98px){
+  .sysreq-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+}
+
+/* ============================
+   DESKTOP (>= 992px, breakpoint "lg" de Bootstrap)
+   Layout cinematográfico: imagen en fondo absoluto,
+   specs superpuestas a la derecha.
+   ============================ */
+@media (min-width:992px){
+  .sysreq-stage{
+    min-height:70vh;
+    display:flex;
+    align-items:center;
+  }
+
+  .sysreq-side-image{
+    position:absolute;
+    top:0;
+    right:0;
+    width:65%;
+    height:100%;
+    z-index:0;
+  }
+
+  .sysreq-side-image::after{
+    background:
+      linear-gradient(180deg,
+        rgba(0,0,0,0.65) 0%,
+        rgba(0,0,0,0) 18%,
+        rgba(0,0,0,0) 82%,
+        rgba(0,0,0,0.65) 100%),
+      linear-gradient(270deg,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0.04) 12%,
+        rgba(0,0,0,0.10) 25%,
+        rgba(0,0,0,0.20) 38%,
+        rgba(0,0,0,0.35) 50%,
+        rgba(0,0,0,0.55) 62%,
+        rgba(0,0,0,0.75) 74%,
+        rgba(0,0,0,0.90) 86%,
+        rgba(0,0,0,1) 100%);
+  }
+
+  .sysreq-content{
+    position:relative;
+    z-index:1;
+    width:100%;
+    justify-content:flex-start;
+    padding:25px 4% 25px 3%;
+  }
+
+  .sysreq-wrap{
+    text-align:left;
+  }
+
+  .sysreq-title{
+    font-size:52px;
+    margin-bottom:50px;
+  }
+
+  .sysreq-grid{
+    grid-template-columns:1fr 1fr;
+    margin:0;
+  }
+}

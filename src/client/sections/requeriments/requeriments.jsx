@@ -1,61 +1,58 @@
 import React from "react";
+import "../../assets/styles/requeriments.css"; 
+const TEMPLE_IMAGE_URL =
+  "https://www.worldhistory.org/img/c/p/1200x627/2507.jpg"; 
+  
 const Specifications = [
   {
-    label: "OS:",
+    label: "SO:",
     value: (
       <>
-        Windows 7 64-bit only
-        <br />
-        (No OSX support at this time)
+        Windows 10/11 de 64 bits
       </>
     ),
   },
   {
-    label: "Processor:",
+    label: "Procesador:",
     value: (
       <>
-        Intel Core 2 Duo @ 2.4 GHZ or
-        <br />
-        AMD Athlon X2 @ 2.8 GHZ
+        Intel Core i5-8400 /
+        AMD Ryzen 5 2600
       </>
     ),
   },
   {
-    label: "Memory:",
-    value: "8 GB RAM",
+    label: "memoria RAM:",
+    value: "16 GB ",
   },
   {
-    label: "Storage:",
-    value: "8 GB available space",
+    label: "Almacenamiento:",
+    value: "45 GB DISPONIBLES",
   },
   {
-    label: "Graphics:",
+    label: "Gráficos:",
     value: (
       <>
-        NVIDIA GeForce GTX 660 2GB or
-        <br />
-        AMD Radeon HD 7850 2GB (DX11, Shader Model 5)
+       NVIDIA GTX 1060 6 GB / AMD RX 580 8 GB
       </>
     ),
   },
   {
-    label: "Sound Card:",
-    value: "DirectX Compatible",
+    label: "DirectX:",
+    value: "DirectX 12",
   },
 ];
  
 function Requeriments() {
    return (
-    <section className="sysreq-stage">
-      <div className="sysreq-side-image" />
- 
+   <section className="sysreq-stage">
       <div className="sysreq-content">
         <div className="sysreq-wrap">
-          <p className="sysreq-eyebrow">CAN MY COMPUTER RUN THIS GAME?</p>
-          <h1 className="sysreq-title">SYSTEM REQUIREMENTS</h1>
+          <p className="sysreq-eyebrow">¿TU COMPUTADOR ESTÁ LISTO PARA LA AVENTURA?</p>
+          <h1 className="sysreq-title">REQUERIMIENTOS MÍNIMOS</h1>
  
           <div className="sysreq-grid">
-            {Specifications.map((spec, i) => (
+            {Specifications.map((spec) => (
               <div className="sysreq-cell" key={spec.label}>
                 <div className="sysreq-label">{spec.label}</div>
                 <div className="sysreq-value">{spec.value}</div>
@@ -63,6 +60,13 @@ function Requeriments() {
             ))}
           </div>
         </div>
+      </div>
+       <div className="sysreq-side-image">
+        <img
+          src={TEMPLE_IMAGE_URL}
+          alt="Temple ruins"
+          className="w-100 h-100"
+        />
       </div>
     </section>
   );
