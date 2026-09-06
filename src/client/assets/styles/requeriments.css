@@ -6,13 +6,9 @@
 .sysreq-stage{
   position:relative;
   background:#000;
-  font-family:'Oswald', sans-serif;
-  --sysreq-cream:#e9e0c9;
-  --sysreq-gold:#c9a24b;
-  --sysreq-black:#000;
+  font-family:var(--ui-font); 
   overflow:hidden;
 }
-
 
 .sysreq-content{
   position:relative;
@@ -29,7 +25,7 @@
 }
 
 .sysreq-eyebrow{
-  color:var(--sysreq-cream);
+  color:var(--cream);
   letter-spacing:4px;
   font-size:12px;
   font-weight:500;
@@ -83,7 +79,7 @@
 }
 
 .sysreq-label{
-  color:var(--sysreq-gold);
+  color:var(--gold);
   font-size:13px;
   font-weight:700;
   letter-spacing:1px;
@@ -93,7 +89,7 @@
 }
 
 .sysreq-value{
-  color:var(--sysreq-cream);
+  color:var(--cream);
   font-size:14px;
   line-height:1.5;
   font-weight:400;
