@@ -6,7 +6,6 @@
     min-height:100vh;
     padding:5.5rem 4.5rem;
     overflow:hidden;
-
     background:#14150f;
     background-image:
         radial-gradient(circle at 30% 30%, rgba(40,46,34,.55), transparent 60%),

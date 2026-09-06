@@ -6,7 +6,7 @@ import About from "./sections/about/about.jsx";
 import Character from "./sections/character.jsx";
 import News from "./sections/new/news.jsx";
 import Reserve from "./sections/reserve.jsx";
-import Requeriments from "./sections/requeriments.jsx";
+import Requeriments from "./sections/requeriments/requeriments.jsx";
 import Footer from "./layout/footer.jsx";
 import './assets/styles/variable.css'
 import './assets/styles/globals.css'
